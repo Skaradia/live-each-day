@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Cormorant Garamond', 'Cinzel', 'Times New Roman', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #a5d6a7 100%);
+  min-height: 100vh;
+  min-height: -webkit-fill-available; /* Safari mobile fix */
+  max-height: 100vh;
+  overflow: hidden;
+  color: #2e7d32;
+  line-height: 1.6;
+  position: relative;
+  /* Safari mobile touch improvements */
+  -webkit-tap-highlight-color: rgba(76, 175, 80, 0.1);
+  touch-action: manipulation;
+}
+
+/* Elegant subtle pattern background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='elegantPatternBg' x='0' y='0' width='300' height='300' patternUnits='userSpaceOnUse'%3E%3Cg opacity='0.5'%3E%3C!-- Subtle geometric pattern --%3E%3Ccircle cx='150' cy='150' r='4' fill='rgba(76,175,80,0.6)'/%3E%3Cpath d='M150,150 L150,135 M150,150 L165,150 M150,150 L150,165 M150,150 L135,150' stroke='rgba(76,175,80,0.55)' stroke-width='1.2'/%3E%3Ccircle cx='75' cy='75' r='2.5' fill='rgba(129,199,132,0.58)'/%3E%3Cpath d='M75,75 L75,65 M75,75 L85,75 M75,75 L75,85 M75,75 L65,75' stroke='rgba(129,199,132,0.52)' stroke-width='1'/%3E%3Ccircle cx='225' cy='75' r='2.5' fill='rgba(129,199,132,0.58)'/%3E%3Cpath d='M225,75 L225,65 M225,75 L235,75 M225,75 L225,85 M225,75 L215,75' stroke='rgba(129,199,132,0.52)' stroke-width='1'/%3E%3Ccircle cx='75' cy='225' r='2.5' fill='rgba(129,199,132,0.58)'/%3E%3Cpath d='M75,225 L75,215 M75,225 L85,225 M75,225 L75,235 M75,225 L65,225' stroke='rgba(129,199,132,0.52)' stroke-width='1'/%3E%3Ccircle cx='225' cy='225' r='2.5' fill='rgba(129,199,132,0.58)'/%3E%3Cpath d='M225,225 L225,215 M225,225 L235,225 M225,225 L225,235 M225,225 L215,225' stroke='rgba(129,199,132,0.52)' stroke-width='1'/%3E%3Cpath d='M150,75 Q180,105 150,135 Q120,105 150,75' fill='none' stroke='rgba(76,175,80,0.5)' stroke-width='0.8'/%3E%3Cpath d='M150,225 Q180,195 150,165 Q120,195 150,225' fill='none' stroke='rgba(76,175,80,0.5)' stroke-width='0.8'/%3E%3Cpath d='M75,150 Q105,180 135,150 Q105,120 75,150' fill='none' stroke='rgba(76,175,80,0.5)' stroke-width='0.8'/%3E%3Cpath d='M225,150 Q195,180 165,150 Q195,120 225,150' fill='none' stroke='rgba(76,175,80,0.5)' stroke-width='0.8'/%3E%3Cpath d='M150,50 Q200,100 150,150 Q100,100 150,50' fill='none' stroke='rgba(76,175,80,0.45)' stroke-width='0.7'/%3E%3Cpath d='M150,250 Q200,200 150,150 Q100,200 150,250' fill='none' stroke='rgba(76,175,80,0.45)' stroke-width='0.7'/%3E%3Cpath d='M50,150 Q100,200 150,150 Q100,100 50,150' fill='none' stroke='rgba(76,175,80,0.45)' stroke-width='0.7'/%3E%3Cpath d='M250,150 Q200,200 150,150 Q200,100 250,150' fill='none' stroke='rgba(76,175,80,0.45)' stroke-width='0.7'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23elegantPatternBg)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse 1200px 800px at 20% 20%, rgba(129, 199, 132, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse 1000px 600px at 80% 80%, rgba(102, 187, 106, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+#root {
+  min-height: 100vh;
+  min-height: -webkit-fill-available; /* Safari mobile fix */
+  max-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* Improve select dropdown styling */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 40px;
+}
+

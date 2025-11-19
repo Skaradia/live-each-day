@@ -1,0 +1,116 @@
+/* Brightness Flicker Effect */
+body.instability-brightness-active::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, calc(var(--intensity, 0) * 0.6));
+  pointer-events: none;
+  z-index: 10000;
+  animation: brightnessFlicker 0.1s ease-out forwards;
+}
+
+@keyframes brightnessFlicker {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Color Desaturation Flash Effect */
+body.instability-desaturation-active {
+  filter: saturate(calc(1 - var(--intensity, 0) * 0.8)) 
+          hue-rotate(calc(var(--intensity, 0) * 20deg));
+  animation: desaturationFlash 0.1s ease-out forwards;
+}
+
+@keyframes desaturationFlash {
+  0% {
+    filter: saturate(1) hue-rotate(0deg);
+  }
+  50% {
+    filter: saturate(calc(1 - var(--intensity, 0) * 0.8)) 
+            hue-rotate(calc(var(--intensity, 0) * 20deg));
+  }
+  100% {
+    filter: saturate(1) hue-rotate(0deg);
+  }
+}
+
+/* Structural Jitter/Shift Effect */
+body.instability-jitter-active {
+  animation: structuralJitter 0.15s ease-out forwards;
+}
+
+@keyframes structuralJitter {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(
+      calc(var(--intensity, 0) * 2px * var(--jitter-x-1, 1)),
+      calc(var(--intensity, 0) * 2px * var(--jitter-y-1, 1))
+    );
+  }
+  20% {
+    transform: translate(
+      calc(var(--intensity, 0) * 1.5px * var(--jitter-x-2, 1)),
+      calc(var(--intensity, 0) * 1.5px * var(--jitter-y-2, 1))
+    );
+  }
+  30% {
+    transform: translate(
+      calc(var(--intensity, 0) * 1px * var(--jitter-x-3, 1)),
+      calc(var(--intensity, 0) * 1px * var(--jitter-y-3, 1))
+    );
+  }
+  40% {
+    transform: translate(
+      calc(var(--intensity, 0) * 0.5px * var(--jitter-x-4, 1)),
+      calc(var(--intensity, 0) * 0.5px * var(--jitter-y-4, 1))
+    );
+  }
+  50% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Jitter specific elements at higher intensities */
+body.instability-jitter-active .timer-value,
+body.instability-jitter-active .calendar-square.current {
+  animation: elementJitter 0.15s ease-out forwards;
+}
+
+@keyframes elementJitter {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(
+      calc(var(--intensity, 0) * 3px * var(--jitter-x-1, 1)),
+      calc(var(--intensity, 0) * 3px * var(--jitter-y-1, 1))
+    );
+  }
+  50% {
+    transform: translate(
+      calc(var(--intensity, 0) * 2px * var(--jitter-x-2, 1)),
+      calc(var(--intensity, 0) * 2px * var(--jitter-y-2, 1))
+    );
+  }
+  75% {
+    transform: translate(0, 0);
+  }
+}
+
